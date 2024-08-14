@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <nav className="bg-custom-gray h-16">
+    <nav className="bg-custom-gray h-16 fixed z-50 w-full">
       <div className="md:mx-14 px-2 md:px-4">
         <div className="flex justify-between">
           {/* mobile button goes here */}
