@@ -16,9 +16,9 @@ API Integration: /api.jikan.moe for fetching anime data
 clone the repository : https://github.com/MuhammedNoushad/Crunchyroll-clone.git
 live link : https://crunchyroll-clone.onrender.com
 
-![Crunchyroll Clone](https://i.imgur.com/xyMtJbB)
-![Crunchyroll Clone](https://i.imgur.com/4W2Wz8B)
-![Crunchyroll Clone](https://i.imgur.com/SR8jWcl)
+![Crunchyroll Clone 1](https://i.imgur.com/xyMtJbB.jpg)
+![Crunchyroll Clone 2](https://i.imgur.com/4W2Wz8B.jpg)
+![Crunchyroll Clone 3](https://i.imgur.com/SR8jWcl.jpg)
 
 
 🙌 Contributing
