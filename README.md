@@ -1,9 +1,25 @@
-# React + Vite
+🎬 Crunchyroll Clone
+Welcome to the Crunchyroll Clone! This front-end web application emulates the look and feel of Crunchyroll, focusing on a sleek home page experience. It integrates with the /api.jikan.moe API to fetch and display anime data dynamically.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# Crunchyroll-clone
+Homepage Layout: Mimics the Crunchyroll home page design.
+Responsive Design: Optimized for both mobile and desktop views.
+Content Display: Fetches and displays anime content using the /api.jikan.moe API.
+
+🛠️ Technologies Used
+
+Frontend: React.js, Tailwind CSS
+API Integration: /api.jikan.moe for fetching anime data
+
+clone the repository : https://github.com/MuhammedNoushad/Crunchyroll-clone.git
+live link : https://crunchyroll-clone.onrender.com
+
+![Crunchyroll Clone](https://i.imgur.com/xyMtJbB)
+![Crunchyroll Clone](https://i.imgur.com/4W2Wz8B)
+![Crunchyroll Clone](https://i.imgur.com/SR8jWcl)
+
+
+🙌 Contributing
+Feel free to open issues or submit pull requests. Your contributions are always welcome!
