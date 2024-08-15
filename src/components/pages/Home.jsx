@@ -4,6 +4,8 @@ import Header from "../layouts/Header";
 import Carousel from "../common/Carousel";
 import MovieSliders from "../common/MovieSliders";
 import Ad from "../common/Ad";
+import Footer from "../layouts/Footer";
+import LoadMore from "../common/LoadMore";
 
 function Home() {
   return (
@@ -32,6 +34,8 @@ function Home() {
         subHeading=""
       />
       <Ad url="/carousel/ad2.png" />
+      <LoadMore />
+      <Footer />
     </>
   );
 }
