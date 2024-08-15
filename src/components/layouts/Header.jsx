@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function Header() {
+  const [isBrowseOpen, setIsBrowseOpen] = useState(false);
+  const [isNewsOpen, setIsNewsOpen] = useState(false);
+
+  const browseRef = useRef(null);
+  const newsRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (browseRef.current && !browseRef.current.contains(event.target)) {
+        setIsBrowseOpen(false);
+      }
+      if (newsRef.current && !newsRef.current.contains(event.target)) {
+        setIsNewsOpen(false);
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className="bg-custom-gray h-16 fixed z-50 w-full">
       <div className="md:mx-14 px-2 md:px-4">
         <div className="flex justify-between">
           {/* mobile button goes here */}
-          <div className="md:hidden flex space-x-4">
+          <div className="sm:hidden flex space-x-4">
             <div className="md:hidden flex ">
               <button className="mobile-menu-button">
                 <svg
@@ -74,24 +99,217 @@ function Header() {
 
             {/* primary nav */}
             <div className="hidden sm:flex items-center space-x-1">
-              <a
-                href="#"
-                className="py-5 px-4 leading-6 text-custom-gray-2 hover:text-white hover:bg-background-hover cursor-pointer"
-              >
-                Browse
-              </a>
+              <div className="relative" ref={browseRef}>
+                <div
+                  onClick={() => setIsBrowseOpen(!isBrowseOpen)}
+                  className="flex text-custom-gray-2 hover:text-white hover:bg-background-hover cursor-pointer"
+                >
+                  <a href="#" className="py-5 px-4 leading-6">
+                    Browse
+                  </a>
+                  <svg
+                    className="w-6 text-custom-gray-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-t="dropdown-svg"
+                    aria-labelledby="dropdown-svg"
+                    aria-hidden="true"
+                    role="img"
+                  >
+                    <title id="dropdown-svg">Dropdown menu</title>
+                    <path fill="currentColor" d="M7 10h10l-5 5z"></path>
+                  </svg>
+                </div>
+                {isBrowseOpen && (
+                  <div className="absolute left-0 mt-2 p-2 w-[30rem] bg-black text-white shadow-lg">
+                    <div className="p-4 grid grid-cols-2 gap-8">
+                      <div className="space-y-2">
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Popular
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          New
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Alphabetical
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Simulcast Season
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Release Calendar
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Music Videos & Concerts
+                        </a>
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-white font-bold pb-2">GENRES</h3>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Action
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Adventure
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Comedy
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Drama
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Fantasy
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Music
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Romance
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Sci-Fi
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Seinen
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Shojo
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Shonen
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Slice of life
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Sports
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Supernatural
+                        </a>
+                        <a
+                          href="#"
+                          className="block text-gray-300 hover:text-white"
+                        >
+                          Thriller
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
               <a
                 href="#"
                 className="py-5 px-4 leading-6 text-custom-gray-2 hover:text-white hover:bg-background-hover cursor-pointer"
               >
                 Games
               </a>
-              <a
-                href="#"
-                className="py-5 px-4 leading-6 text-custom-gray-2 hover:text-white hover:bg-background-hover cursor-pointer"
-              >
-                News
-              </a>
+              <div className="relative" ref={newsRef}>
+                <div
+                  onClick={() => setIsNewsOpen(!isNewsOpen)}
+                  className="flex text-custom-gray-2 hover:text-white hover:bg-background-hover cursor-pointer"
+                >
+                  <a href="#" className="py-5 px-4 leading-6">
+                    News
+                  </a>
+                  <svg
+                    className="w-6 text-custom-gray-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    data-t="dropdown-svg"
+                    aria-labelledby="dropdown-svg"
+                    aria-hidden="true"
+                    role="img"
+                  >
+                    <title id="dropdown-svg">Dropdown menu</title>
+                    <path fill="currentColor" d="M7 10h10l-5 5z"></path>
+                  </svg>
+                </div>
+                {isNewsOpen && (
+                  <div className="absolute left-0 mt-2 p-2 w-[15rem] bg-black text-white shadow-lg">
+                    <div className="space-y-2">
+                      <a
+                        href="#"
+                        className="block text-gray-300 hover:text-white"
+                      >
+                        Action
+                      </a>
+                      <a
+                        href="#"
+                        className="block text-gray-300 hover:text-white"
+                      >
+                        Adventure
+                      </a>
+                      <a
+                        href="#"
+                        className="block text-gray-300 hover:text-white"
+                      >
+                        Comedy
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
