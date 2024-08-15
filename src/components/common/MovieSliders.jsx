@@ -49,12 +49,16 @@ function MovieSliders({ filteredBy, heading, subHeading }) {
             }}
           >
             {animeData &&
-              animeData.map((anime, index) => (
-                <div key={index} className="flex-shrink-0 px-2">
+              animeData.map((anime) => (
+                <div key={anime.mal_id} className="flex-shrink-0 px-2">
                   <MovieCard
                     image={anime.images.jpg.image_url}
                     title={anime.title}
                     audioOptions={anime.audioOptions}
+                    rating={anime.score}
+                    members={anime.members}
+                    episodes={anime.episodes}
+                    description={anime.synopsis}
                   />
                 </div>
               ))}
@@ -65,15 +69,43 @@ function MovieSliders({ filteredBy, heading, subHeading }) {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 bg-black/50 text-white p-2 md:p-3 rounded-full"
+        className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 text-white p-2 md:p-3"
       >
-        &lt;
+        <svg
+          className="text-white w-11 rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          data-t="angle-left-svg"
+          aria-labelledby="angle-svg"
+          aria-hidden="true"
+          role="img"
+        >
+          <title id="angle-svg">Previous</title>
+          <path
+            fill="currentColor"
+            d="M8.6 7.4L10 6l6 6-6 6-1.4-1.4 4.6-4.6z"
+          ></path>
+        </svg>
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 bg-black/50 text-white p-2 md:p-3 rounded-full"
+        className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 text-white p-2 md:p-3"
       >
-        &gt;
+        <svg
+          className="text-white w-11"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          data-t="angle-right-svg"
+          aria-labelledby="angle-svg"
+          aria-hidden="true"
+          role="img"
+        >
+          <title id="angle-svg">Next</title>
+          <path
+            fill="currentColor"
+            d="M8.6 7.4L10 6l6 6-6 6-1.4-1.4 4.6-4.6z"
+          ></path>
+        </svg>
       </button>
     </div>
   );
